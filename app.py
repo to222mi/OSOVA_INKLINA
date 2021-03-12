@@ -40,6 +40,8 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 auth = dash_auth.BasicAuth(app, VALID_USERNAME_PASSWORD_PAIRS)
 
+server = app.server
+
 app.layout = html.Div([
 	html.Div([
         html.H2("TT OSOVÁ - GEOTECHNICKÝ MONITORING"),
