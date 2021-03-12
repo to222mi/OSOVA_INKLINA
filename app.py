@@ -105,13 +105,13 @@ def update_map(intermediate_value, vrt):
     long = np.float(ink[1])
     lat = np.float(ink[2])
     
-    tunel = np.loadtxt("DATA_ALL\DATA_OK\POPISY\TUNEL.csv", dtype=np.float, delimiter=',')
+    tunel = np.loadtxt("DATA_OK\POPISY\TUNEL.csv", dtype=np.float, delimiter=',')
     tunlong = tunel[:,0]
     tunlat = tunel[:,1]
-    tunel1 = np.loadtxt("DATA_ALL\DATA_OK\POPISY\TUNEL1.txt", dtype=np.float, delimiter=',')
+    tunel1 = np.loadtxt("DATA_OK\POPISY\TUNEL1.txt", dtype=np.float, delimiter=',')
     tunlong1 = tunel1[:,0]
     tunlat1 = tunel1[:,1]
-    coord = np.loadtxt("DATA_ALL\DATA_OK\POPISY\COORD.txt", dtype=np.float, delimiter=',')
+    coord = np.loadtxt("DATA_OK\POPISY\COORD.txt", dtype=np.float, delimiter=',')
     coordlong = coord[:,0]
     coordlat = coord[:,1]
     
@@ -187,15 +187,15 @@ def update_graph(vrt, intermediate_value):
     posun = np.int(ink[4])
     posun1 = np.float(posun/2)
     
-    list_of_files = os.listdir("DATA_ALL\DATA_OK\INK_{}".format(vrt))
+    list_of_files = os.listdir("DATA_OK\INK_{}".format(vrt))
     list_of_files = sorted(list_of_files,key=lambda x: int(os.path.splitext(x)[1].strip(".")))
     DATA = list()
     datess = list()
 
     for file in list_of_files:
         print(file)
-        data = np.loadtxt("DATA_ALL\DATA_OK\INK_{}\{}".format(vrt, file), dtype=np.int, delimiter=' ', skiprows = 16)
-        dates = np.loadtxt("DATA_ALL\DATA_OK\INK_{}\{}".format(vrt, file), dtype=np.str, delimiter=',')
+        data = np.loadtxt("DATA_OK\INK_{}\{}".format(vrt, file), dtype=np.int, delimiter=' ', skiprows = 16)
+        dates = np.loadtxt("DATA_OK\INK_{}\{}".format(vrt, file), dtype=np.str, delimiter=',')
         DATA.append(data)
         datess.append(dates[2])
     
