@@ -72,7 +72,7 @@ app.layout = html.Div([
             {'label': 'INKLINOVRT 22', 'value': '22'},
             {'label': 'INKLINOVRT 23', 'value': '23'},
         ],
-        value='2A'),
+        value='4A'),
     html.Div([
         html.Div([html.H4("POZICE INKLINOVRTU"),
             dcc.Graph(id='map')], style={'display': 'inline-block', 'width': '33%'}),
