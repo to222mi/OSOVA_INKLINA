@@ -86,7 +86,7 @@ app.layout = html.Div([
 	Output('intermediate_value', 'children'),
 	[Input('dropdown_vrty', 'value')])	
 def save_popisy(vrt):
-    popisy = pd.read_csv("DATA_ALL\DATA_OK\POPISY\POPISY1.csv", dtype=np.str, delimiter=',')
+    popisy = pd.read_csv("DATA_OK\POPISY\POPISY1.csv", dtype=np.str, delimiter=',')
     popisy = popisy.values.tolist()
     return json.dumps(popisy)
     
