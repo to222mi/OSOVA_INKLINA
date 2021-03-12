@@ -452,4 +452,4 @@ def update_graph(vrt, intermediate_value):
     return fig
 
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0', port = 4000,threaded=True)
+    app.run_server(debug=True,threaded=True)
