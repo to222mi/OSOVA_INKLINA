@@ -111,19 +111,24 @@ def update_map(intermediate_value, vrt):
     tunel1 = np.loadtxt("DATA_OK/POPISY/TUNEL1.txt", dtype=np.float, delimiter=',')
     tunlong1 = tunel1[:,0]
     tunlat1 = tunel1[:,1]
-    coord = np.loadtxt("DATA_OK/POPISY/COORD.txt", dtype=np.float, delimiter=',')
+    coord = np.loadtxt("DATA_OK/POPISY/COORD.txt", dtype=np.str, delimiter=',')
     coordlong = coord[:,0]
+    coordlong = coordlong.astype(np.float)
     coordlat = coord[:,1]
+    coordlat = coordlat.astype(np.float)
+    names = coord[:,2]
     
     mapbox_access_token = 'pk.eyJ1IjoibWFyaGFuc2t5IiwiYSI6ImNqdWNvdDhsczBsdWY0NGx0ODVndjk3d2wifQ.x7EC5ZvG8pk8J5vPbh03Xw'    
     
     coordata = go.Scattermapbox(
 			lat=coordlat,
 			lon=coordlong,
+            text = names,
+            hoverinfo = 'text',
 			mode='markers',
 			marker=go.scattermapbox.Marker(
-				size=5,
-				color='red',
+				size=9,
+				color='darkred',
                 opacity=0.7))
             
     data = go.Scattermapbox(
@@ -134,6 +139,7 @@ def update_map(intermediate_value, vrt):
 			marker=go.scattermapbox.Marker(
 				size=18,
 				color='red'),
+            hoverinfo = 'text',
 			text=name,
             textfont_size=14,
             textfont_color = 'black',
@@ -170,7 +176,7 @@ def update_map(intermediate_value, vrt):
 			pitch=0,
 			zoom=16))
     
-    fig = go.Figure(data=[coordata, data, data_t, data_tt], layout=layout)
+    fig = go.Figure(data=[coordata, data_t, data_tt, data], layout=layout)
     return fig
     
 @app.callback(Output('graph4', 'figure'),
