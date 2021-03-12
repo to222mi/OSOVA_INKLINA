@@ -10,7 +10,7 @@ from pathlib import Path
 import pandas as pd
 import json
 import numpy as np
-
+import requests
 import plotly
 import plotly.graph_objs as go
 import chart_studio
